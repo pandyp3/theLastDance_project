@@ -5,6 +5,7 @@ A simple Twitter data project that looks for mentions in tweets using the hashta
 - For ease of analysis, Twitter data is pulled and stored to avoid excessive requests to the Twitter API endpoint
 - The number of tweets returned and stored can be configured directly when the api.search method is called (in the example I've specified 1000)
 - I've imported the credential file which contains the OAuth information required
+***(2020-06-06)The file has been updated to search for a defined created date interval, and fetch more tweets***
 
 2. analyze_twitter_data.py
 - Based on player_names.csv file format, I've created a dataframe with player names and permutations of names to search. New player searches can be added to this csv file
