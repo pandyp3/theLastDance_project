@@ -5,14 +5,13 @@ Created on Sat Jun  6 16:00:53 2020
 @author: Parth
 """
 import pandas as pd
-
 import re
 import string
 
+#Specify file path for player_names.csv
+def players(player_names):
 
-def players():
-
-    playercsv = pd.read_csv(r"C:\Users\Parth\Documents\Python Scripts\player_names.csv")
+    playercsv = pd.read_csv(player_names)
     
     playerdf = pd.DataFrame(playercsv)
     
@@ -34,10 +33,10 @@ def players():
 
 # players()
 
-def cleanup_tweets():
+def cleanup_tweets(output_file):
     
-    #We're going to refer back to the main tweet csv and clean it up
-    temp = pd.read_csv(r"C:\Users\Parth\Documents\Python Scripts\tweet_data_May24_May31.csv")
+    #We're going to refer back to the main tweet csv we created in our search file and clean it up
+    temp = pd.read_csv(output_file)
     df = pd.DataFrame(temp)
     """
     remove the non-pertinent data from the tweet
@@ -67,11 +66,6 @@ def cleanup_tweets():
     df['Cleaned Tweet'] = cleanedTweetList
     #remove the erroneous column that is the index of the previous df
     df = df.drop([0])
- 
-    # if not os.path.exists(r"C:\\Users\\Parth\\Documents\\Python Scripts\\tweets.csv"):
-    #     df.to_csv(r"C:\\Users\\Parth\\Documents\\Python Scripts\\tweetDataCleaned.csv")
-    # else:
-    #     print('Already exists')
     
     return df
     
@@ -100,10 +94,5 @@ def match_player_to_tweet():
     df['Players Mentioned'] = pmlCol
     
     return df
-    
-    # if not os.path.exists(r"C:\\Users\\Parth\\Documents\\Python Scripts\\tweetDataCleaned.csv"):
-    #     df.to_csv(r"C:\\Users\\Parth\\Documents\\Python Scripts\\tweetDataCleaned.csv")
-    # else:
-    #     print('Already exists')
 
-# match_player_to_tweet()
+match_player_to_tweet()
