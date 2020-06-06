@@ -23,7 +23,7 @@ auth = OAuthHandler(twitter_credentials.CONSUMER_KEY, twitter_credentials.CONSUM
 auth.set_access_token(twitter_credentials.ACCESS_TOKEN, twitter_credentials.ACCESS_TOKEN_SECRET)
 api = API(auth,wait_on_rate_limit=True)
 
-def get_tweets():
+def get_tweets(output_file):
 
     df = pd.DataFrame(columns=['id', 'Created Date', 'Tweet'])
     idList = []
@@ -38,6 +38,6 @@ def get_tweets():
     df['Created Date'] = dateList
     df['Tweet'] = tweetList
     
-    df.to_csv(r"C:\Users\Parth\Documents\Python Scripts\tweet_data_May1_May2.csv")
+    df.to_csv(output_file)
     
 get_tweets()
