@@ -72,7 +72,7 @@ def cleanup_tweets(output_file):
     
 # cleanup_tweets()
 
-def match_player_to_tweet():
+def match_player_to_tweet(tweetDataCleaned):
     df = cleanup_tweets()
     playerdf = players()
     
@@ -94,5 +94,9 @@ def match_player_to_tweet():
     df['Players Mentioned'] = pmlCol
     
     return df
+    if not os.path.exists(tweetDataCleaned):
+        df.to_csv(tweetDataCleaned)
+    else:
+        print('Already exists')
 
 match_player_to_tweet()
