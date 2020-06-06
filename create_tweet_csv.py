@@ -29,9 +29,7 @@ def get_tweets(tweetDataLocation):
     idList = []
     dateList = []
     tweetList = []
-    for tweet in Cursor(api.search,q="#thelastDance",count=100,
-                               lang="en",
-                               since="2017-04-03").items(1000):
+    for tweet in Cursor(api.search,q="#thelastDance",count=100, lang="en", since="2020-05-24", until="2020-05-31").items(10000):
         idList.append(tweet.id)
         dateList.append(tweet.created_at)
         tweetList.append(tweet.text)
